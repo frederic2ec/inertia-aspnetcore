@@ -5,8 +5,13 @@
         <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
         <PackageId>Inertia.AspNetCore</PackageId>
         <Version>0.0.1</Version>
+        <Description>A simple AspNetCore adapter for Inertia.js. https://inertiajs.com</Description>
         <Authors>Frédéric Choquette</Authors>
-        <Company>Meerkt</Company>
+        <PackageProjectUrl></PackageProjectUrl>
+        <RepositoryUrl>https://github.com/frederic2ec/inertia-aspnetcore</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <PackageTags>AspNetCore, Inertia.js, Inertia</PackageTags>
     </PropertyGroup>
 
     <ItemGroup>
