@@ -9,4 +9,8 @@
         <FrameworkReference Include="Microsoft.AspNetCore.App" />
         <EmbeddedResource Include="Views\**\*" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="Views\Shared\inertia.cshtml" />
+    </ItemGroup>
 </Project>
