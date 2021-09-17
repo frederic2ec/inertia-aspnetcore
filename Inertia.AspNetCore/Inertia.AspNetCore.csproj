@@ -3,6 +3,10 @@
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
         <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+        <PackageId>Inertia.AspNetCore</PackageId>
+        <Version>0.0.1</Version>
+        <Authors>Frédéric Choquette</Authors>
+        <Company>Meerkt</Company>
     </PropertyGroup>
 
     <ItemGroup>
