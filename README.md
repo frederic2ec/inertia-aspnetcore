@@ -5,10 +5,7 @@
 
 ## Prerequisite
 1. .NET Core v5
-2. A ASP.NET Core MVC project
-3. Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation installed via .NET CLI or Package Manger
-    1. Package Manager: PM> Install-Package Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation
-    2. .NET CLI: dotnet add package Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation
+2. An ASP.NET Core MVC project
 
 ## Install
 1. Package Manager: PM> Install-Package Inertia.AspNetCore
@@ -17,21 +14,20 @@
 ## Usage
 1. Setup Startup.cs
 ```c#
+using Inertia.AspNetCore;
+
 public void ConfigureServices(IServiceCollection services)
 {
-    services.AddControllersWithViews().AddRazorRuntimeCompilation(opts =>
-    {
-        opts.FileProviders.Add(new EmbeddedFileProvider(typeof(Inertia.AspNetCore.Inertia).GetTypeInfo().Assembly));
-    })
+    services.AddControllersWithViews().UserInertia();
 }
 ```
 2. In your controller
 ````c#
-private readonly Inertia.AspNetCore.Inertia _inertia = new Inertia.AspNetCore.Inertia();
+using Inertia.AspNetCore;
 
 public IActionResult Index()
 {
-   return _inertia.Render(Request, Response, "Index", new
+   return InertiaView.Render("Index", new
    {
        UserId = 1
    });
