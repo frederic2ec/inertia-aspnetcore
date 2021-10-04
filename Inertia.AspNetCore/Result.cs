@@ -18,11 +18,15 @@ namespace Inertia.AspNetCore
     {
         private readonly string _component;
         private readonly object _props;
+        private readonly ViewDataDictionary _viewData;
+        private readonly ITempDataDictionary _tempData;
         
-        public InertiaResult(string component, object props)
+        public InertiaResult(string component, object props, ViewDataDictionary viewData, ITempDataDictionary tempData)
         {
             _component = component;
             _props = props;
+            _viewData = viewData;
+            _tempData = tempData;
         }
         
         public async Task ExecuteResultAsync(ActionContext context)
@@ -46,10 +50,13 @@ namespace Inertia.AspNetCore
                 }
             }
             
+            _viewData["Data"] = JsonSerializer.Serialize<InertiaData>(data);
+            
             var render = new ViewResult
             {
                 ViewName = "inertia",
-                ViewData = new ViewDataDictionary(new Microsoft.AspNetCore.Mvc.ModelBinding.EmptyModelMetadataProvider(), new Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary()) { { "Data", JsonSerializer.Serialize<InertiaData>(data) } }
+                ViewData = _viewData,
+                TempData = _tempData
             };
             
             await render.ExecuteResultAsync(context);

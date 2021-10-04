@@ -25,14 +25,15 @@ public void ConfigureServices(IServiceCollection services)
 ````c#
 using Inertia.AspNetCore;
 
-public IActionResult Index()
-{
-   return InertiaView.Render("Index", new
-   {
-       UserId = 1
-   });
+public class HomeController : InertiaController {
+    public IActionResult Index()
+    {
+       return Inertia("Index", new
+       {
+           UserId = 1
+       });
+    }
 }
-
 ````
 
 Visit [inertiajs.com](https://inertiajs.com/) to learn more.

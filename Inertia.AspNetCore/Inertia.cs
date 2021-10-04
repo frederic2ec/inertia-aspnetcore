@@ -2,8 +2,8 @@
 
 namespace Inertia.AspNetCore
 {
-    public static class InertiaView
+    public abstract class InertiaController : Controller
     {
-        public static IActionResult Render(string component, object props) => new InertiaResult(component, props);
+        public virtual IActionResult Inertia(string component, object props) => new InertiaResult(component, props, ViewData, TempData);
     }
 }
