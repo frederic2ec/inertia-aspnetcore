@@ -9,9 +9,10 @@ namespace Inertia.AspNetCore
     internal class InertiaData
     {
         public string component { get; set; }
+        public object props { get; set; }
         public string url { get; set; }
         public string version { get; set; }
-        public object props { get; set; }
+        
     }
     
     internal class InertiaResult : IActionResult
