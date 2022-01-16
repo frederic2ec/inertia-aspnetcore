@@ -4,7 +4,7 @@
         <TargetFramework>net5.0</TargetFramework>
         <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
         <PackageId>Inertia.AspNetCore</PackageId>
-        <Version>0.0.4</Version>
+        <Version>0.0.5</Version>
         <Description>A simple AspNetCore adapter for Inertia.js. https://inertiajs.com</Description>
         <Authors>Frédéric Choquette</Authors>
         <PackageProjectUrl>https://www.nuget.org/packages/Inertia.AspNetCore/</PackageProjectUrl>

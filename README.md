@@ -4,7 +4,7 @@
 # Inertia.js ASP.Net Core Adapter
 
 ## Prerequisite
-1. .NET Core v5
+1. .NET Core v5 and later
 2. An ASP.NET Core MVC project
 
 ## Install
@@ -18,7 +18,7 @@ using Inertia.AspNetCore;
 
 public void ConfigureServices(IServiceCollection services)
 {
-    services.AddControllersWithViews().UserInertia();
+    services.AddControllersWithViews().AddInertia();
 }
 ```
 2. In your controller
