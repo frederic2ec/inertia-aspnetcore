@@ -6,7 +6,7 @@ namespace Inertia.AspNetCore
 {
     public static class Configure
     {
-        public static IMvcBuilder UseInertia(this IMvcBuilder app)
+        public static IMvcBuilder AddInertia(this IMvcBuilder app)
         {
             app.AddRazorRuntimeCompilation(opts =>
             {

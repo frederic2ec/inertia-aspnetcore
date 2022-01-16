@@ -1,9 +1,11 @@
 using System;
+using System.Runtime.CompilerServices;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
+[assembly:InternalsVisibleTo("Inertia.AspNetCore.Tests")]
 namespace Inertia.AspNetCore
 {
     internal class InertiaData
@@ -22,7 +24,7 @@ namespace Inertia.AspNetCore
         private readonly ViewDataDictionary _viewData;
         private readonly ITempDataDictionary _tempData;
         
-        public InertiaResult(string component, object props, ViewDataDictionary viewData, ITempDataDictionary tempData)
+        internal InertiaResult(string component, object props, ViewDataDictionary viewData, ITempDataDictionary tempData)
         {
             _component = component;
             _props = props;
