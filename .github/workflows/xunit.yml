@@ -1,17 +1,22 @@
-name: XUnit unit test
+name: XUnit
 on: [push]
 jobs:
-  XUnit-Unit-Test:
+  test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dotnet-version: [ '5.x', '6.x' ]
     steps:
       - uses: actions/checkout@v2
       - name: Setup dotnet
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '5.x'
+          dotnet-version: |
+            5.x
+            6.x
       - name: Install dependencies
         run: dotnet restore
       - name: Build
-        run: dotnet build
+        run: dotnet build --configuration Release --no-restore
       - name: Test with the dotnet CLI
-        run: dotnet test
+        run: dotnet test --no-restore --verbosity normal

@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
+        <TargetFrameworks>net5.0;net6.0</TargetFrameworks>
         <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
         <PackageId>Inertia.AspNetCore</PackageId>
         <Version>0.0.5</Version>
@@ -17,22 +17,22 @@
 
     <ItemGroup>
         <FrameworkReference Include="Microsoft.AspNetCore.App" />
-        <EmbeddedResource Include="Views\**\*" />
     </ItemGroup>
-
+    
     <ItemGroup>
-      <Content Include="Views\Shared\inertia.cshtml" />
-    </ItemGroup>
-
-    <ItemGroup>
+        <EmbeddedResource Include="Views\**\*"/>
+        <Content Include="Views\Shared\inertia.cshtml"/>
         <None Include="..\LICENSE">
             <Pack>True</Pack>
             <PackagePath></PackagePath>
         </None>
     </ItemGroup>
-
-    <ItemGroup>
-      <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.13" />
+    
+    <ItemGroup Condition=" '$(TargetFramework)' == 'net6.0' ">
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.1"/>
     </ItemGroup>
 
+    <ItemGroup Condition=" '$(TargetFramework)' == 'net5.0' ">
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.13"/>
+    </ItemGroup>
 </Project>
