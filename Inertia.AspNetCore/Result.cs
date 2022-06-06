@@ -42,20 +42,23 @@ namespace Inertia.AspNetCore
                 version = Guid.NewGuid().ToString().Replace("-", string.Empty)
             };
             
+            string dataString = JsonSerializer.Serialize<InertiaData>(data);
+            
             if (context.HttpContext.Request.Headers.ContainsKey("X-Inertia"))
             {
                 if (context.HttpContext.Request.Headers["X-Inertia"].ToString() == "true")
                 {
                     context.HttpContext.Response.Headers["Vary"] = "Accept";
                     context.HttpContext.Response.Headers["X-Inertia"] = "True";
-                    await new JsonResult(data).ExecuteResultAsync(context);
+                    await new ContentResult { Content = dataString, ContentType = "application/json" }
+                        .ExecuteResultAsync(context);
                     return;
                 }
             }
+
+            _viewData["Data"] = dataString;
             
-            _viewData["Data"] = JsonSerializer.Serialize<InertiaData>(data);
-            
-            var render = new ViewResult
+            ViewResult render = new ViewResult
             {
                 ViewName = "inertia",
                 ViewData = _viewData,
