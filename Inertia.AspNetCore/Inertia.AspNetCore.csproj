@@ -4,7 +4,7 @@
         <TargetFrameworks>net5.0;net6.0</TargetFrameworks>
         <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
         <PackageId>Inertia.AspNetCore</PackageId>
-        <Version>0.0.6</Version>
+        <Version>0.0.7</Version>
         <Description>A simple AspNetCore adapter for Inertia.js. https://inertiajs.com</Description>
         <Authors>Frédéric Choquette</Authors>
         <PackageProjectUrl>https://www.nuget.org/packages/Inertia.AspNetCore/</PackageProjectUrl>
@@ -29,7 +29,7 @@
     </ItemGroup>
     
     <ItemGroup Condition=" '$(TargetFramework)' == 'net6.0' ">
-        <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.5"/>
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.6"/>
     </ItemGroup>
 
     <ItemGroup Condition=" '$(TargetFramework)' == 'net5.0' ">
